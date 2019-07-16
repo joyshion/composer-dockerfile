@@ -11,8 +11,8 @@ RUN apk add --no-cache git php7 php7-openssl php7-gd php7-json php7-phar php7-ic
     && php -r "unlink('composer-setup.php');unlink('composer.sig');" \
     && composer --version
 
-# Change repository to https://packagist.laravel-china.org
-RUN composer config -g repo.packagist composer https://packagist.laravel-china.org
+# Change repository to https://mirrors.aliyun.com/composer/
+RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
 # Set up the volumes and working directory
 WORKDIR /app

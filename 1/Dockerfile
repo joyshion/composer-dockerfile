@@ -7,7 +7,7 @@ RUN apk add --no-cache git php7 php7-openssl php7-gd php7-json php7-phar php7-ic
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "copy('https://composer.github.io/installer.sig', 'composer.sig');" \
     && php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('composer.sig'))) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
-    && php composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer \
+    && php composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=1.10.20 \
     && php -r "unlink('composer-setup.php');unlink('composer.sig');" \
     && composer --version
 

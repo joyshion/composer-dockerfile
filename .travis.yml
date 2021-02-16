@@ -1,8 +1,17 @@
 language: bash
 services: docker
 
+env:
+  - SOFT=1 REPO=shion/composer:1
+  - SOFT=2 REPO=shion/composer:2
+
+before_script:
+  - env
+  - cd "$SOFT"
+  - image="${REPO}"
+
 script:
-  - docker build ./ -t "shion/composer"
+  - docker build ./ -t "$image"
 
 after_script:
   - docker images
